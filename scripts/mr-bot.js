@@ -9,10 +9,10 @@ async function init() {
     );
   }
 
-  // const { stderr, stdout } = await cloneRepoToFixtures(
-  //   'upleveled/preflight-test-project-react-passing',
-  //   'react-passing',
-  // );
+  const { stderr, stdout } = await cloneRepoToFixtures(
+    'upleveled/preflight-test-project-react-passing',
+    'react-passing',
+  );
 
   console.log('Domo arigato misuta Robotto');
 
