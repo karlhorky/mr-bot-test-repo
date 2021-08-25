@@ -31,7 +31,7 @@ jobs:
             - With GitHub **Markdown** :sparkles:
             - Created by [create-or-update-comment][1]
 
-            text is ${{ github.event.issue.body }}
+            text is ${{ github.event.comment.body }}
 
             [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: '+1'
