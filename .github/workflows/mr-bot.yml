@@ -16,19 +16,19 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: Say Hello to mr. Roboto
-        run: node ./scripts/mr-bot.js ${{ github.event.issue.url }}
-        env:
-          MY_STRING: ${{ toJson(github.event.issue) }}
-        id: random-color-generator
-
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
 
       - name: Install preflight
         run: yarn global add @upleveled/preflight
 
-      - name: Create comment
+      - name: Say Hello to mr. Roboto
+        run: node ./scripts/mr-bot.js ${{ github.event.issue.url }}
+        env:
+          MY_STRING: ${{ toJson(github.event.issue) }}
+        id: random-color-generator
+
+        - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.issue.number }}
