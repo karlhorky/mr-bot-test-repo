@@ -1,3 +1,3 @@
 console.log('Domo arigato misuta Robotto');
 
-console.log(JSON.stringify(process.argv));
+console.log(JSON.stringify(process.argv[2]));
