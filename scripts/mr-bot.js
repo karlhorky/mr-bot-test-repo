@@ -9,14 +9,14 @@ async function init() {
     );
   }
 
-  await cloneRepoToFixtures(
+  const message = await cloneRepoToFixtures(
     'upleveled/preflight-test-project-react-passing',
     'react-passing',
   );
 
   console.log('Domo arigato misuta Robotto');
 
-  console.log(process.env.MY_STRING);
+  console.log(message);
 
   console.log('::set-output name=SELECTED_COLOR::brown');
 }
