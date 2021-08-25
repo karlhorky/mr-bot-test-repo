@@ -20,7 +20,7 @@ jobs:
         run: node ./scripts/mr-bot.js ${{ github.event.issue.url }}
         env:
           MY_ENV: ${{ github.event.issue.url }}
-          MY_ENV: ${{ toJson(github.event.issue) }}
+          MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator
 
       - name: Get color
