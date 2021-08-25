@@ -38,7 +38,9 @@ jobs:
             - Created by [create-or-update-comment][1]
 
             Text is: ${{ github.event.comment.body }}
-            The color is: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
-
+            preflight:
+            ```sh
+            ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
+            ```
             [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: '+1'

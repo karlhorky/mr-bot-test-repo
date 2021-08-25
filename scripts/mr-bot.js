@@ -26,7 +26,7 @@ async function init() {
   console.log(ans.stderr ? 'error' : 'good');
   console.log(ans.stdout);
 
-  console.log('::set-output name=SELECTED_COLOR::brown');
+  console.log(`::set-output name=SELECTED_COLOR::${ans.stdout}`);
 }
 
 init();
