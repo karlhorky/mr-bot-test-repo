@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [8.x, 10.x]
+        node_version: [10.x]
 
     steps:
       - name: Checkout
@@ -19,4 +19,4 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: Say Hello to mr. Roboto
-        run: ./scripts/mr-bot.js
+        run: node ./scripts/mr-bot.js
