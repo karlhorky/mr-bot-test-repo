@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: Say Hello to mr. Roboto
-        run: node ./scripts/mr-bot.js
+        run: node ./scripts/mr-bot.js ${{ github.event.issue }}
 
       - run: |
           echo "Comment on issue #${{ github.event.issue.body }}"
