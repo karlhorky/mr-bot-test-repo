@@ -18,7 +18,7 @@ jobs:
 
       - name: Say Hello to mr. Roboto
         run: node ./scripts/mr-bot.js ${{ github.event.issue.url }}
-        with:
+        env:
           MY_ENV: ${{ github.event.issue.url }}
         id: random-color-generator
 
