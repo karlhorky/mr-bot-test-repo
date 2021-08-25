@@ -28,7 +28,7 @@ jobs:
           MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator
 
-        - name: Create comment
+      - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.issue.number }}
