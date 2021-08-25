@@ -19,15 +19,14 @@ jobs:
       - name: Say Hello to mr. Roboto
         run: node ./scripts/mr-bot.js ${{ github.event.issue.url }}
         env:
-          MY_ENV: ${{ github.event.issue.url }}
           MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator
 
-      - name: Get color
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+      - name: Install deps and build (with cache)
+        uses: bahmutov/npm-install@v1
 
-      - run: |
-          echo "Comment on issue #${{ github.event.issue.body }}"
+      - name: Install preflight
+        run: yarn global add @upleveled/preflight
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
