@@ -20,7 +20,7 @@ jobs:
         run: node ./scripts/mr-bot.js
 
       - run: |
-          echo "Comment on issue #${{ github.event.issue.number }}"
+          echo "Comment on issue #${{ github.event.issue }}"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
