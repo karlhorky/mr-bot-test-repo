@@ -20,7 +20,17 @@ async function init() {
     `preflight ./${fixturesTempDir}/react-passing`,
   );
 
-  const anss = await execa.command('yarn --frozen-lockfile', {
+  // const anss = await execa.command('yarn --frozen-lockfile', {
+  //   cwd: `${fixturesTempDir}/react-passing`,
+  // });
+  const anss = await execa.command(
+    'yarn upgrade --latest @upleveled/eslint-config-upleveled',
+    {
+      cwd: `${fixturesTempDir}/react-passing`,
+    },
+  );
+
+  const ansas = await execa.command('git reset --hard HEAD', {
     cwd: `${fixturesTempDir}/react-passing`,
   });
 
