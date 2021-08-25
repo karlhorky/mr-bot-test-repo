@@ -20,7 +20,7 @@ jobs:
         run: node ./scripts/mr-bot.js
 
       - run: |
-          echo "Comment on issue #${{ github.event.issue }}"
+          echo "Comment on issue #${{ github.event.issue.body }}"
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
@@ -30,6 +30,8 @@ jobs:
             This is a multi-line test comment
             - With GitHub **Markdown** :sparkles:
             - Created by [create-or-update-comment][1]
+
+            text is ${{ github.event.issue.body }}
 
             [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: '+1'
