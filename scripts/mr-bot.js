@@ -20,7 +20,7 @@ async function init() {
     `preflight ./${fixturesTempDir}/react-passing`,
   );
 
-  const ans = await execa.command('yarn --frozen-lockfile', {
+  const anss = await execa.command('yarn --frozen-lockfile', {
     cwd: `${fixturesTempDir}/react-passing`,
   });
 
