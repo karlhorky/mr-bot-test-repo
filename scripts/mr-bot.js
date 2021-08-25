@@ -1,7 +1,7 @@
 import execa from 'execa';
 
 async function init() {
-  const fixturesTempDir = '__tests__/fixtures/__temp';
+  const fixturesTempDir = 'fixtures/__temp';
 
   async function cloneRepoToFixtures(repoPath, fixtureDirName) {
     return execa.command(
