@@ -16,15 +16,12 @@ async function init() {
 
   console.log('Domo arigato misuta Robotto');
 
-  console.log(stderr ? 'error' : 'good');
-  console.log(stderr || stdout);
-
   const ans = await execa.command(
     `preflight ./${fixturesTempDir}/react-passing`,
   );
 
   console.log(ans.stderr ? 'error' : 'good');
-  console.log(ans.stdout);
+  // console.log(ans.stdout);
 
   const stdoutSortedWithoutVersionNumber = ans.stdout
     .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+/, '$1')
