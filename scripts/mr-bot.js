@@ -1,8 +1,8 @@
 import execa from 'execa';
 
-async function init() {
-  const fixturesTempDir = 'fixtures/__temp';
+const fixturesTempDir = 'fixtures/__temp';
 
+async function init() {
   async function cloneRepoToFixtures(repoPath, fixtureDirName) {
     return execa.command(
       `git clone --depth 1 --single-branch --branch=main https://github.com/${repoPath}.git ${fixturesTempDir}/${fixtureDirName} --config core.autocrlf=input`,
@@ -18,6 +18,13 @@ async function init() {
 
   console.log(stderr ? 'error' : 'good');
   console.log(stderr || stdout);
+
+  const ans = await execa.command(
+    `preflight ./${fixturesTempDir}/react-passing`,
+  );
+
+  console.log(ans.stderr ? 'error' : 'good');
+  console.log(ans.stdout);
 
   console.log('::set-output name=SELECTED_COLOR::brown');
 }
