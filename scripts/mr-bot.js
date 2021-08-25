@@ -26,7 +26,18 @@ async function init() {
   console.log(ans.stderr ? 'error' : 'good');
   console.log(ans.stdout);
 
-  console.log(`::set-output name=SELECTED_COLOR::${ans.stdout}`);
+  const stdoutSortedWithoutVersionNumber = ans.stdout
+    .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+/, '$1')
+    .split('\n')
+    .sort((a, b) => {
+      if (b.includes('UpLeveled Preflight')) return 1;
+      return a < b ? -1 : 1;
+    })
+    .join('\n');
+
+  console.log(
+    `::set-output name=SELECTED_COLOR::${stdoutSortedWithoutVersionNumber}`,
+  );
 }
 
 init();
