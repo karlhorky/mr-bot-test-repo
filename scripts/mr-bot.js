@@ -30,7 +30,7 @@ async function init() {
 
   console.log('step 2.5');
 
-  const anss = await execa.command(
+  const ansse = await execa.command(
     'yarn upgrade --latest @upleveled/eslint-config-upleveled',
     {
       cwd: `${fixturesTempDir}/react-passing`,
