@@ -18,6 +18,10 @@ jobs:
 
       - name: Say Hello to mr. Roboto
         run: node ./scripts/mr-bot.js ${{ github.event.issue }}
+        id: random-color-generator
+
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 
       - run: |
           echo "Comment on issue #${{ github.event.issue.body }}"
