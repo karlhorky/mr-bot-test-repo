@@ -9,29 +9,40 @@ async function init() {
     );
   }
 
-  const { stderr, stdout } = await cloneRepoToFixtures(
-    'upleveled/preflight-test-project-react-passing',
-    'react-passing',
-  );
+  // const { stderr, stdout } = await cloneRepoToFixtures(
+  //   'upleveled/preflight-test-project-react-passing',
+  //   'react-passing',
+  // );
 
   console.log('Domo arigato misuta Robotto');
-
-  const ans = await execa.command(
-    `preflight ./${fixturesTempDir}/react-passing`,
-  );
 
   // const anss = await execa.command('yarn --frozen-lockfile', {
   //   cwd: `${fixturesTempDir}/react-passing`,
   // });
+
+  const ansas = await execa.command('git reset --hard HEAD', {
+    cwd: `./${fixturesTempDir}/react-passing`,
+  });
+
+  console.log('step 1');
+
+  const ansasa = await execa.command('yarn', {
+    cwd: `./${fixturesTempDir}/react-passing`,
+  });
+
+  console.log('step 2');
+
   const anss = await execa.command(
     'yarn upgrade --latest @upleveled/eslint-config-upleveled',
     {
-      cwd: `${fixturesTempDir}/react-passing`,
+      cwd: `./${fixturesTempDir}/react-passing`,
     },
   );
 
-  const ansas = await execa.command('git reset --hard HEAD', {
-    cwd: `${fixturesTempDir}/react-passing`,
+  console.log('step 3');
+
+  const ans = await execa.command(`preflight`, {
+    cwd: `./${fixturesTempDir}/react-passing`,
   });
 
   console.log(ans.stderr ? 'error' : 'good');
