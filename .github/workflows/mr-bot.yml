@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: Say Hello to mr. Roboto
-        run: node ./scripts/mr-bot.js ${{ github.event.issue.url }}
+        run: node ./scripts/mr-bot.js ${{ toJSON(github.event.issue) }}
         env:
           MY_ENV: ${{ github.event.issue.url }}
         id: random-color-generator
