@@ -1,22 +1,11 @@
-name: CI
-on: push
+on: issue_comment
 
 jobs:
-  linux:
-    name: Linux build on node ${{ matrix.node_version }}
+  issue_commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [10.x]
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Set Node.js version ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_version }}
-
-      - name: Say Hello to mr. Roboto
-        run: node ./scripts/mr-bot.js
+      - run: |
+          echo "Comment on issue #${{ github.event.issue.number }}"
