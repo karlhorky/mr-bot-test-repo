@@ -21,4 +21,4 @@ async function init() {
   console.log('::set-output name=SELECTED_COLOR::brown');
 }
 
-init;
+init();
