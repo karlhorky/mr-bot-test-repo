@@ -32,7 +32,7 @@ async function init() {
   console.log('message', message);
   const splittedMessage = message
     .trim()
-    .split(/.*(\r?\n|$)/)
+    .split(/(\r?\n|$)/)
     .filter((line) => line !== '')
     .map((line) => line.replaceAll(' ', ''));
 
