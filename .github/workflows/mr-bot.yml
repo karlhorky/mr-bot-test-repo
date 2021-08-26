@@ -31,7 +31,7 @@ jobs:
       - name: run preflight
         run: |
           pwd
-          cd ./fixtures
+          cd ./fixtures/__temp
           ls
 
       - name: Create comment
