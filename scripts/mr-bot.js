@@ -38,7 +38,9 @@ async function init() {
     (line) => line === '@upleveledreadytocheck',
   );
 
+  console.log(botCall);
   if (!botCall) {
+    console.log(botCall);
     return comment("The Bot wasn't invoked");
   }
 
