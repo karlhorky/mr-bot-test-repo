@@ -38,7 +38,9 @@ async function init() {
     (line) => line === '@upleveledreadytocheck',
   );
 
-  if (!botCall) return comment("The Bot wasn't invoked");
+  if (!botCall) {
+    return comment("The Bot wasn't invoked");
+  }
 
   const repoUrl = splittedMessage
     .find((line) => line?.toLowerCase().split(/repo:(.+)/)[1])
