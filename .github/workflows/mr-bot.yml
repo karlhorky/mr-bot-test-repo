@@ -32,7 +32,7 @@ jobs:
         run: |
           pwd
           ls
-          cd ./mr-bot-test-repo/fixtures/__test/react-passing
+          cd ./fixtures/__test/react-passing
           preflight
 
       - name: Create comment
