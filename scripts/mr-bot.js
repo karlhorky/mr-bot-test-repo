@@ -161,6 +161,10 @@ async function init() {
       .join('\n');
 
     console.log(stdoutSortedWithoutVersionNumber);
+    console.log('--------------------------');
+    console.log('-                        -');
+    console.log('--------------------------');
+    console.log(pattern);
     console.log(
       'it match?',
       stdoutSortedWithoutVersionNumber.trim().match(pattern.trim()),
