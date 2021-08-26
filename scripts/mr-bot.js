@@ -1,7 +1,8 @@
 import execa from 'execa';
 import comment from './mr-bot-action.js';
 
-const pattern = `🚀 UpLeveled Preflight
+const pattern = `
+🚀 UpLeveled Preflight
 [STARTED] All changes committed to Git
 [STARTED] ESLint
 [STARTED] ESLint config is latest version
@@ -27,7 +28,8 @@ const pattern = `🚀 UpLeveled Preflight
 [SUCCESS] Preflight is latest version
 [SUCCESS] Prettier
 [SUCCESS] Use single package manager
-[SUCCESS] node_modules/ folder ignored in Git`;
+[SUCCESS] node_modules/ folder ignored in Git
+`;
 
 const messageExamples = {
   good: `
@@ -171,7 +173,11 @@ async function init() {
       'it match?',
       stdoutSortedWithoutVersionNumber.trim().match(pattern.trim()),
     );
-    comment('@josehower This is ready for you');
+    if (stdoutSortedWithoutVersionNumber.trim() === pattern.trim()) {
+      comment('@josehower This is ready for you');
+    } else {
+      comment('Ups! it seems preflight is not happy whit your code');
+    }
   }
 }
 
