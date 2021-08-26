@@ -1,7 +1,5 @@
 name: CommentIssue
 on: issue_comment
-inputs:
-  token: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   issue_commented:

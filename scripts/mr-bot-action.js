@@ -3,6 +3,7 @@ import core from '@actions/core';
 import github from '@actions/github';
 
 try {
+  console.log(process.argv[2]);
   console.log(process.env);
   console.log(process.env.GITHUB_TOKEN);
   console.log({
