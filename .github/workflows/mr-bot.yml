@@ -19,9 +19,8 @@ jobs:
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
 
-      - name: Install preflight
-        run: yarn global add @upleveled/preflight
-
+      # - name: Install preflight
+      #   run: yarn global add @upleveled/preflight
       - name: Say Hello to mr. Roboto
         run: node ./scripts/mr-bot.js
         env:
