@@ -23,16 +23,16 @@ jobs:
         run: yarn global add @upleveled/preflight
 
       - name: Say Hello to mr. Roboto
-        run: node ./scripts/mr-bot.js ${{ github.event.issue.url }}
+        run: node ./scripts/mr-bot-action.js ${{ github.event.issue.url }}
         env:
           MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator
 
-      - name: run preflight
-        run: |
-          pwd
-          cd ./fixtures/__temp/react-passing
-          preflight
+      # - name: run preflight
+      #   run: |
+      #     pwd
+      #     cd ./fixtures/__temp/react-passing
+      #     preflight
 
       # - name: Create comment
       #   uses: peter-evans/create-or-update-comment@v1
