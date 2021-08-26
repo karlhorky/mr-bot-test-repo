@@ -19,13 +19,13 @@ jobs:
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
 
-      - name: Install preflight
-        run: yarn global add @upleveled/preflight
+      # - name: Install preflight
+      #   run: yarn global add @upleveled/preflight
 
       - name: Say Hello to mr. Roboto
         run: node ./scripts/mr-bot-action.js ${{ github.event.issue.url }}
-        env:
-          MY_STRING: ${{ toJson(github.event.issue) }}
+        # env:
+        #   MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator
 
       # - name: run preflight
