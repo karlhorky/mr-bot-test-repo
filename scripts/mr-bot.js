@@ -70,6 +70,8 @@ async function init() {
     let message = '';
     errors.forEach((error) => (message += error.message + '\n'));
     comment(message.trim());
+  } else {
+    comment(message.trim('@josehower This is ready for you'));
   }
 }
 
