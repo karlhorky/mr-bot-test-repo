@@ -166,6 +166,10 @@ async function init() {
     console.log('--------------------------');
     console.log(pattern);
     console.log(
+      'is equal??',
+      stdoutSortedWithoutVersionNumber.trim() === pattern.trim(),
+    );
+    console.log(
       'it match?',
       stdoutSortedWithoutVersionNumber.trim().match(pattern.trim()),
     );
