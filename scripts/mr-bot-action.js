@@ -7,7 +7,7 @@ try {
   console.log(process.env);
   console.log(process.env.GITHUB_TOKEN);
   console.log({
-    token: core.getInput('token'),
+    token: process.argv[2],
     repository: core.getInput('repository'),
     issueNumber: core.getInput('issue-number'),
     commentId: core.getInput('comment-id'),
