@@ -2,7 +2,7 @@ import execa from 'execa';
 import comment from './mr-bot-action.js';
 
 const pattern = `
-"🚀 UpLeveled Preflight
+🚀 UpLeveled Preflight
 [STARTED] All changes committed to Git
 [STARTED] ESLint
 [STARTED] ESLint config is latest version
@@ -28,7 +28,7 @@ const pattern = `
 [SUCCESS] Preflight is latest version
 [SUCCESS] Prettier
 [SUCCESS] Use single package manager
-[SUCCESS] node_modules/ folder ignored in Git"
+[SUCCESS] node_modules/ folder ignored in Git
 `;
 
 const messageExamples = {
@@ -101,6 +101,8 @@ async function init() {
     errors.forEach((error) => (message += error.message + '\n'));
     comment(message.trim());
   } else {
+    // --------------- from here
+
     const fixturesTempDir = 'fixtures/__temp';
 
     async function cloneRepoToFixtures(repoPath, fixtureDirName) {
@@ -159,7 +161,10 @@ async function init() {
       .join('\n');
 
     console.log(stdoutSortedWithoutVersionNumber);
-    console.log('it match?', stdoutSortedWithoutVersionNumber.match(pattern));
+    console.log(
+      'it match?',
+      stdoutSortedWithoutVersionNumber.trim().match(pattern.trim()),
+    );
     comment('@josehower This is ready for you');
   }
 }
