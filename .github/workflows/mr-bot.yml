@@ -28,6 +28,11 @@ jobs:
           MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator
 
+      - name: run preflight
+        run: |
+          cd ./fixtures/__test/react-passing
+          preflight
+
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
