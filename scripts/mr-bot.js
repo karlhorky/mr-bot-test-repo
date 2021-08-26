@@ -71,7 +71,7 @@ async function init() {
     errors.forEach((error) => (message += error.message + '\n'));
     comment(message.trim());
   } else {
-    comment(message.trim('@josehower This is ready for you'));
+    comment('@josehower This is ready for you');
   }
 }
 
