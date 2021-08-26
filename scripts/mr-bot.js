@@ -1,8 +1,7 @@
 import execa from 'execa';
 import comment from './mr-bot-action.js';
 
-const pattern = `
-🚀 UpLeveled Preflight
+const pattern = `🚀 UpLeveled Preflight
 [STARTED] All changes committed to Git
 [STARTED] ESLint
 [STARTED] ESLint config is latest version
@@ -28,8 +27,7 @@ const pattern = `
 [SUCCESS] Preflight is latest version
 [SUCCESS] Prettier
 [SUCCESS] Use single package manager
-[SUCCESS] node_modules/ folder ignored in Git
-`;
+[SUCCESS] node_modules/ folder ignored in Git`;
 
 const messageExamples = {
   good: `
