@@ -1,5 +1,5 @@
 import execa from 'execa';
-import action from './mr-bot-action';
+import action from './mr-bot-action.js';
 
 const fixturesTempDir = 'fixtures/__temp';
 
