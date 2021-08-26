@@ -1,3 +1,4 @@
+import { inspect } from 'node:util';
 import core from '@actions/core';
 import github from '@actions/github';
 
