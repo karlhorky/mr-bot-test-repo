@@ -1,5 +1,7 @@
 name: CommentIssue
 on: issue_comment
+inputs:
+  token: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   issue_commented:
@@ -24,8 +26,6 @@ jobs:
 
       - name: Say Hello to mr. Roboto
         run: node ./scripts/mr-bot-action.js ${{ secrets.GITHUB_TOKEN }}
-        inputs:
-          token: ${{ secrets.GITHUB_TOKEN }}
         # env:
         #   MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator
