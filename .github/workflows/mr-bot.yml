@@ -24,8 +24,10 @@ jobs:
 
       - name: Say Hello to mr. Roboto
         run: node ./scripts/mr-bot-action.js ${{ secrets.GITHUB_TOKEN }}
-        # env:
-        #   MY_STRING: ${{ toJson(github.event.issue) }}
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          COMMENT_ID: ${{ github.event.comment.id }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
         id: random-color-generator
 
       # - name: run preflight

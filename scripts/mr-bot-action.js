@@ -6,36 +6,18 @@ try {
   console.log(process.argv[2]);
   console.log(process.env);
   console.log(process.env.GITHUB_TOKEN);
-  console.log({
-    token: process.argv[2],
-    repository: core.getInput('repository'),
-    issueNumber: core.getInput('issue-number'),
-    commentId: core.getInput('comment-id'),
-    body: core.getInput('body'),
-    editMode: core.getInput('edit-mode'),
-    reactions: core.getInput('reactions')
-      ? core.getInput('reactions')
-      : core.getInput('reaction-type'),
-  });
 
   const inputs = {
     token: process.argv[2],
-    repository: core.getInput('repository'),
-    issueNumber: core.getInput('issue-number'),
-    commentId: core.getInput('comment-id'),
-    body: core.getInput('body'),
-    editMode: core.getInput('edit-mode'),
-    reactions: core.getInput('reactions')
-      ? core.getInput('reactions')
-      : core.getInput('reaction-type'),
+    issueNumber: process.env.ISSUE_NUMBER,
+    commentId: process.env.COMMENT_ID,
+    body: process.env.COMMENT_BODY,
   };
   core.debug(`Inputs: ${inspect(inputs)}`);
 
   const octokit = github.getOctokit(inputs.token);
 
-  const repository = inputs.repository
-    ? inputs.repository
-    : process.env.GITHUB_REPOSITORY;
+  const repository = process.env.GITHUB_REPOSITORY;
   const repo = repository.split('/');
 
   const { data: comment } = await octokit.rest.issues.createComment({
