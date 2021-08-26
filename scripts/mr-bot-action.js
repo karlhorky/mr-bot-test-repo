@@ -19,7 +19,7 @@ try {
   });
 
   const inputs = {
-    token: core.getInput('token'),
+    token: process.argv[2],
     repository: core.getInput('repository'),
     issueNumber: core.getInput('issue-number'),
     commentId: core.getInput('comment-id'),
