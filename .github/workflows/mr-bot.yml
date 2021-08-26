@@ -31,8 +31,8 @@ jobs:
       - name: run preflight
         run: |
           pwd
-          cd ./fixtures/__temp
-          ls
+          cd ./fixtures/__temp/react-passing
+          preflight
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
