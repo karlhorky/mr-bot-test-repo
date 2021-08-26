@@ -55,7 +55,7 @@ async function init() {
 
   console.log(stdoutSortedWithoutVersionNumber);
 
-  action();
+  await action();
 }
 
 init();
