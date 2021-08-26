@@ -28,11 +28,15 @@ async function init() {
   // Check the links are there
   // console.log(process.env.COMMENT_BODY.split('\n'));
   const message = process.env.COMMENT_BODY || messageExamples.bad;
+
+  console.log('message', message);
   const splittedMessage = message
     .trim()
     .split('\n')
     .filter((line) => line !== '')
     .map((line) => line.replaceAll(' ', ''));
+
+  console.log('splittedMessage', splittedMessage);
 
   const botCall = splittedMessage.some(
     (line) => line === '@upleveledreadytocheck',
