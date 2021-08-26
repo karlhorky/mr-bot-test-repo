@@ -34,19 +34,19 @@ jobs:
           cd ./fixtures/__temp/react-passing
           preflight
 
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v1
-        with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
-            - Created by [create-or-update-comment][1]
+      # - name: Create comment
+      #   uses: peter-evans/create-or-update-comment@v1
+      #   with:
+      #     issue-number: ${{ github.event.issue.number }}
+      #     body: |
+      #       This is a multi-line test comment
+      #       - With GitHub **Markdown** :sparkles:
+      #       - Created by [create-or-update-comment][1]
 
-            Text is: ${{ github.event.comment.body }}
-            preflight:
-            ```sh
-            ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
-            ```
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+      #       Text is: ${{ github.event.comment.body }}
+      #       preflight:
+      #       ```sh
+      #       ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
+      #       ```
+      #       [1]: https://github.com/peter-evans/create-or-update-comment
+      #     reactions: '+1'

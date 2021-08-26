@@ -1,6 +1,8 @@
 {
   "type": "module",
   "dependencies": {
+    "@actions/core": "^1.5.0",
+    "@actions/github": "^5.0.0",
     "execa": "^5.1.1"
   },
   "scripts": {
