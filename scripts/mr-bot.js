@@ -38,13 +38,13 @@ async function init() {
 
   console.log('step 3');
 
-  await execa.command(`preflight`, {
+  const { stderr, stdout } = await execa.command(`preflight`, {
     cwd: `${fixturesTempDir}/react-passing`,
   });
 
-  console.log(ans.stderr ? 'error' : 'good');
+  console.log(stderr ? 'error' : 'good');
 
-  const stdoutSortedWithoutVersionNumber = ans.stdout
+  const stdoutSortedWithoutVersionNumber = stdout
     .replace(/(UpLeveled Preflight) v\d+\.\d+\.\d+/, '$1')
     .split('\n')
     .sort((a, b) => {
