@@ -23,7 +23,7 @@ jobs:
       #   run: yarn global add @upleveled/preflight
 
       - name: Say Hello to mr. Roboto
-        run: node ./scripts/mr-bot-action.js ${{ github.event.issue.url }}
+        run: node ./scripts/mr-bot-action.js ${{ github.token }}
         # env:
         #   MY_STRING: ${{ toJson(github.event.issue) }}
         id: random-color-generator

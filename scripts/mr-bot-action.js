@@ -3,6 +3,19 @@ import core from '@actions/core';
 import github from '@actions/github';
 
 try {
+  console.log(process.env[2]);
+  console.log({
+    token: core.getInput('token'),
+    repository: core.getInput('repository'),
+    issueNumber: core.getInput('issue-number'),
+    commentId: core.getInput('comment-id'),
+    body: core.getInput('body'),
+    editMode: core.getInput('edit-mode'),
+    reactions: core.getInput('reactions')
+      ? core.getInput('reactions')
+      : core.getInput('reaction-type'),
+  });
+
   const inputs = {
     token: core.getInput('token'),
     repository: core.getInput('repository'),
