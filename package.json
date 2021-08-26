@@ -2,5 +2,10 @@
   "type": "module",
   "dependencies": {
     "execa": "^5.1.1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./fixtures/__temp",
+    "start": "node scripts/mr-bot.js",
+    "go": "yarn start && yarn clean"
   }
 }

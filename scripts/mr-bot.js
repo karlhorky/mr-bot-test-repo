@@ -1,7 +1,7 @@
 import execa from 'execa';
 
 const fixturesTempDir = 'fixtures/__temp';
-
+// git clone --depth 1 --single-branch --branch=main https://github.com/upleveled/preflight-test-project-react-passing.git fixtures/__temp/react-passing --config core.autocrlf=input
 async function init() {
   async function cloneRepoToFixtures(repoPath, fixtureDirName) {
     return execa.command(
@@ -23,6 +23,8 @@ async function init() {
   // });
 
   console.log('step 2');
+  // console.log(__dirname);
+  console.log(process.cwd());
 
   const anss = await execa.command('yarn', {
     cwd: `${fixturesTempDir}/react-passing`,
