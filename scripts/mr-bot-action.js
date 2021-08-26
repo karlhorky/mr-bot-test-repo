@@ -2,13 +2,13 @@ import { inspect } from 'node:util';
 import core from '@actions/core';
 import github from '@actions/github';
 
-const run = async () => {
+const comment = async (message = 'Domo Arigato Misuta Roboto') => {
   try {
     const inputs = {
       token: process.env.GITHUB_TOKEN,
       issueNumber: process.env.ISSUE_NUMBER,
       commentId: process.env.COMMENT_ID,
-      body: process.env.COMMENT_BODY,
+      body: message,
     };
 
     core.debug(`Inputs: ${inspect(inputs)}`);
@@ -22,7 +22,7 @@ const run = async () => {
       owner: repo[0],
       repo: repo[1],
       issue_number: inputs.issueNumber,
-      body: 'Domo Arigato Misuta Roboto',
+      body: inputs.body,
     });
 
     core.info(
@@ -35,4 +35,4 @@ const run = async () => {
   }
 };
 
-export default run;
+export default comment;
