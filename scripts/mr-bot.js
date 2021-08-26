@@ -46,7 +46,7 @@ async function init() {
   console.log('step 3');
 
   const ans = await execa.command(`preflight`, {
-    cwd: `fixtures/__temp/react-passing`,
+    cwd: `../fixtures/__temp/react-passing`,
   });
 
   console.log(ans.stderr ? 'error' : 'good');
