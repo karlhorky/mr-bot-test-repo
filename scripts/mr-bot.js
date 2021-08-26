@@ -34,7 +34,7 @@ async function init() {
     .filter((line) => line !== '')
     .map((line) => line.replaceAll(' ', ''));
 
-  const botCall = splittedMessage.find(
+  const botCall = splittedMessage.some(
     (line) => line === '@upleveledreadytocheck',
   );
 
