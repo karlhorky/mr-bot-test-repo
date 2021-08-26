@@ -31,6 +31,7 @@ jobs:
       - name: run preflight
         run: |
           pwd
+          ls
           cd ./mr-bot-test-repo/fixtures/__test/react-passing
           preflight
 
