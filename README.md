@@ -3,7 +3,7 @@
 Remember following the next format
 
 ```js
-@upleveled ready to check
+ready to check
 Repo: https://github.com/josehower/myprojecturl
 Deployed: https://myproject.netlify.app
 ```
